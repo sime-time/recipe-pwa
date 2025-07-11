@@ -1,0 +1,95 @@
+/* Coffee Theme */
+.theme-coffee {
+  --color-primary: #8B593E;
+  --color-background: #FFF8F3;
+  --color-text: #4A3428;
+  --color-border: #E5D3B7;
+  --color-white: #FFFFFF;
+  --color-text-light: #9A8478;
+  --color-card: #FFFFFF;
+  --color-shadow: #000000;
+}
+
+/* Forest Theme */
+.theme-forest {
+  --color-primary: #2E7D32;
+  --color-background: #E8F5E9;
+  --color-text: #1B5E20;
+  --color-border: #C8E6C9;
+  --color-white: #FFFFFF;
+  --color-text-light: #66BB6A;
+  --color-card: #FFFFFF;
+  --color-shadow: #000000;
+}
+
+/* Purple Theme */
+.theme-purple {
+  --color-primary: #6A1B9A;
+  --color-background: #F3E5F5;
+  --color-text: #4A148C;
+  --color-border: #D1C4E9;
+  --color-white: #FFFFFF;
+  --color-text-light: #BA68C8;
+  --color-card: #FFFFFF;
+  --color-shadow: #000000;
+}
+
+/* Ocean Theme */
+.theme-ocean {
+  --color-primary: #0277BD;
+  --color-background: #E1F5FE;
+  --color-text: #01579B;
+  --color-border: #B3E5FC;
+  --color-white: #FFFFFF;
+  --color-text-light: #4FC3F7;
+  --color-card: #FFFFFF;
+  --color-shadow: #000000;
+}
+
+/* Sunset Theme */
+.theme-sunset {
+  --color-primary: #FF7E67;
+  --color-background: #FFF3F0;
+  --color-text: #2C1810;
+  --color-border: #FFD5CC;
+  --color-white: #FFFFFF;
+  --color-text-light: #FFA494;
+  --color-card: #FFFFFF;
+  --color-shadow: #000000;
+}
+
+/* Mint Theme */
+.theme-mint {
+  --color-primary: #00B5B5;
+  --color-background: #E8F6F6;
+  --color-text: #006666;
+  --color-border: #B2E8E8;
+  --color-white: #FFFFFF;
+  --color-text-light: #66D9D9;
+  --color-card: #FFFFFF;
+  --color-shadow: #000000;
+}
+
+/* Midnight Theme */
+.theme-midnight {
+  --color-primary: #2C3E50;
+  --color-background: #F4F6F7;
+  --color-text: #1A2530;
+  --color-border: #D5D8DC;
+  --color-white: #FFFFFF;
+  --color-text-light: #7F8C8D;
+  --color-card: #FFFFFF;
+  --color-shadow: #000000;
+}
+
+/* Rose Gold Theme */
+.theme-roseGold {
+  --color-primary: #E0BFB8;
+  --color-background: #FDF6F5;
+  --color-text: #4A3B38;
+  --color-border: #F2D9D5;
+  --color-white: #FFFFFF;
+  --color-text-light: #C9A9A6;
+  --color-card: #FFFFFF;
+  --color-shadow: #000000;
+}

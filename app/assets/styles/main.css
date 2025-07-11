@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #6A1B9A;
+  --background: #F3E5F5;
+  --text: #4A148C;
+  --border: #D1C4E9;
+  --white: #FFFFFF;
+  --textLight: #BA68C8;
+  --card: #FFFFFF;
+  --shadow: #000000;
+}
+
+html {
+  font-family: "Inter", "sans-serif";
+}
+
+body {
+  padding: 1rem;
+  background: var(--background);
+}
+
+button {
+  transition: opacity 0.2s ease-in-out;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+.touch-opacity {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.touch-opacity:active {
+  opacity: 0.8;
+}
