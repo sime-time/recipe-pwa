@@ -27,7 +27,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
   // If the route is a login page AND the user IS authenticated,
   // redirect them away from the login page.
-  if ((to.path === '/sign-in' || to.path === '/sign-up' || to.path === '/verify-email') && authenticated.value) {
+  if ((to.path === '/sign-in' || to.path === '/sign-up') && authenticated.value) {
     return navigateTo('/'); // Redirect to home or dashboard
   }
 

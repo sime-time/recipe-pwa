@@ -19,7 +19,7 @@ function toggleShowPassword() {
 }
 
 async function handleSignUp() {
-  await signUp(name.value, email.value, password.value);
+  signUp(name.value, email.value, password.value);
 }
 
 </script>
