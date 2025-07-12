@@ -5,6 +5,16 @@ export default defineNuxtConfig({
   // otherwise nuxt server will try to check cookie authentication before server rendering each page
   // and of course the server doesn't have the client-side cookies
   ssr: false,
+  nitro: {
+    preset: "cloudflare_module",
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+      wrangler: {
+        name: "recipe-pwa",
+      },
+    },
+  },
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   future: {
@@ -28,4 +38,7 @@ export default defineNuxtConfig({
       weights: [400, 700],
     }
   },
+  pwa: {
+    registerType: "autoUpdate",
+  }
 })
