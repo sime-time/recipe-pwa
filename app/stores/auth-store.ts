@@ -2,7 +2,7 @@ import { createAuthClient } from "better-auth/vue";
 import { emailOTPClient } from "better-auth/client/plugins";
 
 export const authClient = createAuthClient({
-  // baseURL: http://localhost:8787,
+  //baseURL: "http://localhost:8787",
   baseURL: "https://recipe-api.simedunn01.workers.dev",
   plugins: [emailOTPClient()],
 });
@@ -110,6 +110,25 @@ export const useAuthStore = defineStore("useAuthStore", () => {
     }
   }
 
+  async function signOut() {
+    loading.value = true;
+    console.log("signing out...");
+
+    const signOutAttempt = await authClient.signOut();
+    if (signOutAttempt.error) {
+      console.error("Sign-out failed:", signOutAttempt.error);
+      return toast.error({
+        title: "Sign-out failed",
+        message: signOutAttempt.error.message,
+        position: "topCenter",
+      });
+    }
+    setAuth(false, null);
+
+    await router.push("/sign-in");
+    loading.value = false;
+  }
+
 
   async function sendCodeToEmail(email: string, resend?: boolean) {
     // send verification code to user email
@@ -172,6 +191,7 @@ export const useAuthStore = defineStore("useAuthStore", () => {
     loading,
     signIn,
     signUp,
+    signOut,
     sendCodeToEmail,
     verifyEmailCode,
     setAuth,

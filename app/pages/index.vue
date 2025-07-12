@@ -1,3 +1,10 @@
+<script setup>
+import SignOutButton from "~/components/sign-out-button.vue";
+</script>
+
 <template>
-  <h1>hello pwa</h1>
+  <div class="container" ontouchstart="">
+    <h1 class="title">Home</h1>
+    <SignOutButton />
+  </div>
 </template>
