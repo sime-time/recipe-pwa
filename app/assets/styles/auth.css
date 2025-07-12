@@ -59,12 +59,13 @@
   background-color: var(--background);
   border-radius: 12px;
   border: 1px solid var(--border);
+  width: 100%;
 }
 
 .eye-button {
   position: absolute;
   right: 16px;
-  top: 16px;
+  top: 18px;
   padding: 1px;
 }
 
@@ -78,6 +79,7 @@
   border-radius: 12px;
   margin-top: 20px;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .button-disabled {
