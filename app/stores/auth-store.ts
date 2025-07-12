@@ -48,9 +48,9 @@ export const useAuthStore = defineStore("useAuthStore", () => {
       // if email is still not verified, send verification email again
       if (signInAttempt.data.user.emailVerified) {
         setAuth(true, signInAttempt.data.user);
-        router.push("/")
+        router.push("/");
       } else {
-        router.push(`/verify-email?address=${signInAttempt.data.user.email}`)
+        router.push(`/verify-email?address=${signInAttempt.data.user.email}`);
       }
 
     } catch (error) {

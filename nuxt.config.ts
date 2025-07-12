@@ -1,6 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  ssr: false,
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   future: {
@@ -15,6 +16,7 @@ export default defineNuxtConfig({
     "nuxt-toast",
     "@pinia/nuxt",
   ],
+  plugins: ["~/plugins/auth-checker.client.ts"],
   css: ["~/assets/styles/main.css"],
   fonts: {
     defaults: {
