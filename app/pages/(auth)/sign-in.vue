@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { useAuthStore } from '~/stores/auth-store';
-import { storeToRefs } from 'pinia';
-
 definePageMeta({
   layout: "auth-layout",
 });
@@ -19,7 +16,7 @@ function toggleShowPassword() {
 }
 
 async function handleSignIn() {
-  signIn(email.value, password.value);
+  await signIn(email.value, password.value);
 }
 </script>
 

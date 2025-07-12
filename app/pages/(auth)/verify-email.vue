@@ -1,87 +1,24 @@
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
+
 definePageMeta({
   layout: "auth-layout",
 });
 
-const router = useRouter();
-const toast = useToast();
+const authStore = useAuthStore();
+const { loading } = storeToRefs(authStore);
+const { verifyEmailCode, sendCodeToEmail } = authStore;
+
 const route = useRoute();
 const email = route.query.address as string;
-
 const code = ref("");
-const loading = ref(false);
-
-onMounted(async () => {
-  // send verification code to user email
-  const sendEmailAttempt = await authClient.emailOtp.sendVerificationOtp({
-    email: email,
-    type: "email-verification"
-  });
-
-  console.log("sending verification code to", email);
-
-  if (sendEmailAttempt.error) {
-    console.error(JSON.stringify(sendEmailAttempt, null, 2));
-    return toast.error({
-      title: "Error",
-      message: "Failed to send verification email.",
-      position: "topCenter",
-    });
-  }
-});
-
-async function handleResendEmail() {
-  // this is a duplicate of the email sending logic,
-  // but it's okay because it's explicitly for the resend button.
-  const resendEmailAttempt = await authClient.emailOtp.sendVerificationOtp({
-    email: email,
-    type: "email-verification",
-  });
-
-  console.log("resending verification code to", email);
-  if (resendEmailAttempt.error) {
-    console.error(JSON.stringify(resendEmailAttempt, null, 2));
-    return toast.error({
-      title: "Error",
-      message: "Failed to resend verification email. Please try again.",
-      position: "topCenter",
-    });
-  } else {
-    return toast.show({
-      title: "Verification",
-      message: `Sent code to ${email}`,
-      position: "topCenter",
-    });
-  }
-}
 
 async function handleVerification() {
-  loading.value = true;
-  try {
-    // use the code input to attempt verification
-    const verifyEmailAttempt = await authClient.emailOtp.verifyEmail({
-      email: email,
-      otp: code.value,
-    });
-
-    if (verifyEmailAttempt.error) {
-      return toast.error({
-        title: "Error",
-        message: "Verification failed. Please try again.",
-        position: "topCenter",
-      });
-    }
-
-    console.log("email verified!");
-    router.push("/")
-
-  } catch (error) {
-    console.error("Error", error);
-
-  } finally {
-    loading.value = false;
-  }
+  await verifyEmailCode(email, code.value);
 }
+
+onMounted(async () => await sendCodeToEmail(email));
+
 </script>
 
 <template>
@@ -110,7 +47,7 @@ async function handleVerification() {
       </button>
 
       <!-- RESEND EMAIL -->
-      <div class="link-container link-text touch-opacity" @click="handleResendEmail">
+      <div class="link-container link-text touch-opacity" @click="() => sendCodeToEmail(email, true)">
         <p>Didn't get an email? <span class="link">Resend code to email</span></p>
       </div>
     </form>

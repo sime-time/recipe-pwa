@@ -1,66 +1,27 @@
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
+
 definePageMeta({
   layout: "auth-layout",
 });
 
-const router = useRouter();
-const toast = useToast();
+const authStore = useAuthStore();
+const { loading } = storeToRefs(authStore);
+const { signUp } = authStore;
 
 const name = ref("");
 const email = ref("");
 const password = ref("");
 const showPassword = ref(false);
-const loading = ref(false);
 
 function toggleShowPassword() {
   showPassword.value = !showPassword.value;
-};
+}
 
 async function handleSignUp() {
-  if (!email.value || !password.value) {
-    return toast.error({
-      title: "Sign-up failed",
-      message: "Please fill in all fields",
-      position: "topCenter",
-    });
-  }
-
-  if (password.value.length < 8) {
-    return toast.error({
-      title: "Sign-up failed",
-      message: "Password must be at least 8 characters",
-      position: "topCenter",
-    });
-  }
-
-  loading.value = true;
-
-  try {
-    // create new user
-    const signUpAttempt = await authClient.signUp.email({
-      name: name.value,
-      email: email.value,
-      password: password.value,
-    });
-
-    if (signUpAttempt.error) {
-      console.error(JSON.stringify(signUpAttempt, null, 2));
-      return toast.error({
-        title: "Sign-up failed",
-        message: signUpAttempt.error.message,
-        position: "topCenter",
-      });
-    };
-
-    router.push(`/verify-email/${signUpAttempt.data.user.email}`);
-
-  } catch (error) {
-    console.error("Error", error);
-
-  } finally {
-    loading.value = false;
-  }
+  await signUp(name.value, email.value, password.value);
 }
+
 </script>
 
 <template>
