@@ -2,7 +2,8 @@ import { createAuthClient } from "better-auth/vue";
 import { emailOTPClient } from "better-auth/client/plugins";
 
 export const authClient = createAuthClient({
-  baseURL: "https://recipe-api.simedunn01.workers.dev", // URL of backend api
+  // baseURL: http://localhost:8787,
+  baseURL: "https://recipe-api.simedunn01.workers.dev",
   plugins: [emailOTPClient()],
 });
 

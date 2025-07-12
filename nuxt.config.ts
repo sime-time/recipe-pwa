@@ -26,12 +26,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  modules: [
-    "@nuxt/fonts",
-    "@nuxt/icon",
-    "nuxt-toast",
-    "@pinia/nuxt",
-  ],
+  modules: ["@nuxt/fonts", "@nuxt/icon", "nuxt-toast", "@pinia/nuxt", '@vite-pwa/nuxt'],
   css: ["~/assets/styles/main.css"],
   fonts: {
     defaults: {
