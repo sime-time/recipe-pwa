@@ -45,6 +45,7 @@ export default defineNuxtConfig({
       short_name: 'Recipes',
       description: 'My Favorite Recipes Saved',
       theme_color: '#F3E5F5',
+      background_color: '#F3E5F5',
       icons: [
         {
           src: 'pwa-64x64.png',
