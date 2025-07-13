@@ -1,6 +1,8 @@
 <template>
   <NuxtPwaManifest />
   <NuxtLayout>
-    <NuxtPage />
+    <main ontouchstart="">
+      <NuxtPage />
+    </main>
   </NuxtLayout>
 </template>

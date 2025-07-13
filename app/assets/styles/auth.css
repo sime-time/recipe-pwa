@@ -3,6 +3,7 @@
   flex-direction: column;
   flex: 1;
   background-color: var(--background);
+  padding: 1rem;
 }
 
 .keyboard-view {
